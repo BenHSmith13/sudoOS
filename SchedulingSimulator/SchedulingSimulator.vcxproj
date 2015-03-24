@@ -78,8 +78,8 @@
   <ItemGroup>
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Task.cpp" />
     <ClCompile Include="sudoOS.cpp" />
+    <ClCompile Include="Task.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Event.h" />
