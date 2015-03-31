@@ -77,12 +77,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="FIFO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sudoOS.cpp" />
     <ClCompile Include="Task.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Event.h" />
+    <ClInclude Include="fifo.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="SudoOS.h" />
   </ItemGroup>

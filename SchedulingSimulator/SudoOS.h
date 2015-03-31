@@ -44,10 +44,9 @@ public:
 	{
 		numTasks = n;
 	}
-	void setCPUs(int n)
-	{
-		CPUs = n;
-	}
+
+	void setCPUs(int n);
+
 	void setContextSwitch(float f)
 	{
 		contextSwitch = f;
@@ -68,12 +67,18 @@ public:
 	{
 		sysClock = f;
 	}
+
+	bool freeCPU()
+	{
+		if (getCPUs() > 0) return true;
+	}
 	
 	void createTasks()
 	{
 		createTasks(numTasks);
 	}
 	void menu();
+	void run();  //This is empty
 
 private:
 	std::vector<Task> taskVect;
@@ -86,8 +91,10 @@ private:
 	float contextSwitch = 4;
 	int IOdevices = 2;
 	int taskPercent = 50;
-	float freq = 5;			//I don't know what this is, or what its supposed to do.
+	float freq = 5;			//I am guessing at what this is.
 	float sysClock = 0;
+
+	std::vector<float> CPUtimes;
 
 	void createTasks(int n);
 
