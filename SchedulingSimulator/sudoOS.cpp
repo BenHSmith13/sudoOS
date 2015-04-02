@@ -43,10 +43,10 @@ void scheduler::menu()
 			break;
 		case 'T':
 		case 't':
-			std::cout << "Enter percent of CPU events (0-100): ";
+			std::cout << "Enter Mix of CPU Bound Tasks (0-100): ";
 			int k;
 			std::cin >> k;
-			setTaskPercent(k);
+			setTaskMix(k);
 			break;
 		case 'F':
 		case 'f':
@@ -70,11 +70,14 @@ void scheduler::menu()
 
 void scheduler::createTasks(int n)
 {
+	auto ratio = n*getTaskMix() / 100;
+
 	for (auto i = 0; i < n; i++)
 	{
 		Task newTask;
 		newTask.setStartTime(i*getFreq());
-		newTask.createEvents(getTaskPercent(), getFreq());
+		if (i > ratio) newTask.makeIOBound();
+		newTask.createEvents();
 		taskVect.push_back(newTask);
 	}
 }

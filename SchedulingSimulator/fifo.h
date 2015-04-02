@@ -8,6 +8,7 @@ class FIFO : public scheduler
 public:
 	void run();
 	void addEventToCPU();
+	void maFunct();
 
 private:
 	std::queue<Event> fifoQ;

@@ -27,9 +27,9 @@ public:
 	{
 		return IOdevices;
 	}
-	int getTaskPercent()
+	int getTaskMix()
 	{
-		return taskPercent;
+		return taskMix;
 	}
 	float getFreq()
 	{
@@ -71,9 +71,9 @@ public:
 	{
 		IOdevices = n;
 	}
-	void setTaskPercent(int n)
+	void setTaskMix(int n)
 	{
-		taskPercent = n;
+		taskMix = n;
 	}
 	void setFreq(int n)
 	{
@@ -112,7 +112,7 @@ private:
 	std::queue<Event> waitQ;
 	float contextSwitch = 4;
 	int IOdevices = 2;
-	int taskPercent = 50;
+	int taskMix = 50;
 	float freq = 5;			
 	float sysClock = 0;
 	std::vector<Task> taskVect;

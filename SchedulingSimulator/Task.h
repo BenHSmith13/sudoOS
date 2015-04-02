@@ -7,7 +7,8 @@
 class Task
 {
 public:
-	void createEvents(int percent, float start);\
+	void createEvents();
+	void createEvent(float CPUt, float IOt);
 
 	void setStartTime(float f)
 	{
@@ -16,6 +17,10 @@ public:
 	void setEndTime(float f)
 	{
 		endTime = f;
+	}
+	void makeIOBound()
+	{
+		bound = "IO";
 	}
 
 	float getStartTime()
@@ -26,6 +31,11 @@ public:
 	{
 		return endTime;
 	}
+	float randRunTime(int top);
+	std::string getBound()
+	{
+		return bound;
+	}
 	std::vector<Event> getEvents()
 	{
 		return events;
@@ -35,6 +45,7 @@ private:
 	std::vector<Event> events;
 	float startTime = 0;
 	float endTime = 0;
+	std::string bound = "CPU";
 };
 
 #endif
