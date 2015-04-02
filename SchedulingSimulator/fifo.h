@@ -5,7 +5,12 @@
 
 class FIFO : public scheduler
 {
+public:
 	void run();
+	void addEventToCPU();
+
+private:
+	std::queue<Event> fifoQ;
 };
 
 #endif

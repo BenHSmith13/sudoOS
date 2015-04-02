@@ -39,6 +39,14 @@ public:
 	{
 		return sysClock;
 	}
+	std::vector<Task> getTaskVect()
+	{
+		return taskVect;
+	}
+	std::vector<float> getCPUtimes()
+	{
+		return CPUtimes;
+	}
 	
 	void setNumTasks(int n)
 	{
@@ -46,6 +54,14 @@ public:
 	}
 
 	void setCPUs(int n);
+	void incrementFreeCPUs()
+	{
+		CPUs += 1;
+	}
+	void decrementFreeCPUs()
+	{
+		CPUs -= 1;
+	}
 
 	void setContextSwitch(float f)
 	{
@@ -68,9 +84,10 @@ public:
 		sysClock = f;
 	}
 
-	bool freeCPU()
+
+	bool isCPUfree()
 	{
-		if (getCPUs() > 0) return true;
+		if (freeCPUs > 0) return true;
 	}
 	
 	void createTasks()
@@ -78,10 +95,15 @@ public:
 		createTasks(numTasks);
 	}
 	void menu();
-	void run();  //This is empty
+
+	void run()
+	{
+		createTasks();
+	}
+	
+	std::vector<float> CPUtimes;
 
 private:
-	std::vector<Task> taskVect;
 	int numTasks = 3;
 	std::priority_queue<Event> eventQ;
 	int CPUs = 2; 
@@ -91,10 +113,10 @@ private:
 	float contextSwitch = 4;
 	int IOdevices = 2;
 	int taskPercent = 50;
-	float freq = 5;			//I am guessing at what this is.
+	float freq = 5;			
 	float sysClock = 0;
-
-	std::vector<float> CPUtimes;
+	std::vector<Task> taskVect;
+	
 
 	void createTasks(int n);
 

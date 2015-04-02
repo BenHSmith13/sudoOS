@@ -26,6 +26,10 @@ public:
 	{
 		return endTime;
 	}
+	std::vector<Event> getEvents()
+	{
+		return events;
+	}
 
 private:
 	std::vector<Event> events;
