@@ -1,8 +1,10 @@
 #include "SudoOS.h"
+#include "MemoryFifo.h"
 
 int main(){
-	scheduler testOS;
+	MemoryFifo testOS;
 	testOS.createTasks();
+	testOS.run();
 
 	return 0;
 }
