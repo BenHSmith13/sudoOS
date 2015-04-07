@@ -3,8 +3,7 @@
 
 int main(){
 	MemoryFifo testOS;
-	testOS.createTasks();
-	testOS.run();
+	testOS.menu();
 
 	return 0;
 }
