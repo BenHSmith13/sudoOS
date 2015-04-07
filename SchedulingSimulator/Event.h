@@ -7,16 +7,27 @@
 class Event
 {
 public:
-	float randRunTime();
 	void setRunTime(float time);
 	void setType(int t);
 	float getRunTime()
 	{
 		return runTime;
 	}
+	void setMemLocation(int l)
+	{
+		memLocation = l;
+	}
+	int getMemLocation()
+	{
+		return memLocation;
+	}
+
+	int randLocation();
+
 private:
-	float runTime = randRunTime();
+	float runTime = 0;
 	std::string type;
+	int memLocation = randLocation();
 };
 
 #endif

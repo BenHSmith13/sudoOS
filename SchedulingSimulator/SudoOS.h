@@ -75,7 +75,7 @@ public:
 	{
 		taskMix = n;
 	}
-	void setFreq(int n)
+	void setFreq(float n)
 	{
 		freq = n;
 	}
@@ -88,6 +88,9 @@ public:
 	bool isCPUfree()
 	{
 		if (freeCPUs > 0) return true;
+	}
+	bool isIOfree(){
+		if (getIOdevices() > 0) return true;
 	}
 	
 	void createTasks()
@@ -107,11 +110,12 @@ private:
 	int numTasks = 3;
 	std::priority_queue<Event> eventQ;
 	int CPUs = 2; 
-	int freeCPUs = 2;
+	int freeCPUs = CPUs;
+	int IOdevices = 2;
+	int freeIOdevices = IOdevices;
 	std::queue<Event> readyQ;
 	std::queue<Event> waitQ;
 	float contextSwitch = 4;
-	int IOdevices = 2;
 	int taskMix = 50;
 	float freq = 5;			
 	float sysClock = 0;
